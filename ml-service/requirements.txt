@@ -1,3 +1,8 @@
-pip install fastapi uvicorn pandas numpy scikit-learn xgboost joblib
-
-run server - uvicorn main:app --reload
+fastapi
+uvicorn
+pandas
+numpy
+scikit-learn
+xgboost
+joblib
+pydantic

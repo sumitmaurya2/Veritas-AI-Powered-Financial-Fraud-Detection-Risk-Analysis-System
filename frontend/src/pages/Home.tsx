@@ -12,7 +12,7 @@ function Home() {
     <div className="max-w-7xl mx-auto">
 
       <h1 className="text-4xl font-bold">
-        AI-Powered Financial Fraud Detection
+        AI-Powered Financial Fraud Detection & Risk Analysis System
       </h1>
 
       <p className="text-gray-600 mt-2">

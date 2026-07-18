@@ -9,7 +9,7 @@ export const predictFraud = async (
   try {
     // Call FastAPI
     const response = await axios.post(
-      "http://127.0.0.1:8000/predict",
+          `${process.env.ML_API_URL}/predict`,
       req.body
     );
 
