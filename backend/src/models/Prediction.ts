@@ -1,9 +1,41 @@
-import mongoose from "mongoose";
+import mongoose, { Schema, Document } from "mongoose";
 
-const predictionSchema = new mongoose.Schema(
+export interface IPrediction extends Document {
+  amount: number;
+  hour: number;
+  location: string;
+  device: string;
+  merchant: string;
+  prediction: string;
+  riskScore: number;
+  confidence: number;
+  createdAt: Date;
+}
+
+const PredictionSchema = new Schema(
   {
     amount: {
       type: Number,
+      required: true,
+    },
+
+    hour: {
+      type: Number,
+      required: true,
+    },
+
+    location: {
+      type: String,
+      required: true,
+    },
+
+    device: {
+      type: String,
+      required: true,
+    },
+
+    merchant: {
+      type: String,
       required: true,
     },
 
@@ -27,4 +59,7 @@ const predictionSchema = new mongoose.Schema(
   }
 );
 
-export default mongoose.model("Prediction", predictionSchema);
+export default mongoose.model<IPrediction>(
+  "Prediction",
+  PredictionSchema
+);
