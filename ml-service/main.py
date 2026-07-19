@@ -24,7 +24,31 @@ scaler = joblib.load(
 # -----------------------------
 # Request Model
 # -----------------------------
+from pydantic import BaseModel, Field
+
 class PredictionRequest(BaseModel):
+    amount: float
+    hour: int
+    location: str
+    device: str
+    merchant: str
+
+    isInternational: bool = Field(alias="is_international")
+    transactionsLast1H: int = Field(alias="transactions_last_1h")
+
+    age: int
+
+    monthlyIncome: float = Field(alias="monthly_income")
+    averageTransaction: float = Field(alias="average_transaction")
+
+    occupation: str
+
+    homeCity: str = Field(alias="home_city")
+    usualDevice: str = Field(alias="usual_device")
+
+    model_config = {
+        "populate_by_name": True
+    }
     amount: float
     hour: int
     location: str
